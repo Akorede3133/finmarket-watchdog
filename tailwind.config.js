@@ -7,6 +7,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         graph: "url('assets/graph.jpg')",
+        bit: "url('assets/bitcoin.jpg')",
       },
     },
   },
