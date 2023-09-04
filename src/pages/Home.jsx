@@ -1,7 +1,10 @@
 import React from 'react';
+import CompanyCard from '../components/CompanyCard';
 
 const Home = () => (
-  <div>Home</div>
+  <div>
+    <CompanyCard />
+  </div>
 );
 
 export default Home;
