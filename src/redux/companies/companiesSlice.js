@@ -11,7 +11,6 @@ export const getActiveCompanies = createAsyncThunk('companies/getCompanies', asy
   try {
     const response = await fetch(`https://financialmodelingprep.com/api/v3/stock_market/actives?apikey=${API_KEY}`);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     return error;
