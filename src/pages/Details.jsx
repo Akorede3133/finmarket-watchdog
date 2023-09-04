@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import OverView from '../components/OverView';
 
-const Details = () => {
-  return (
-    <div>Details</div>
-  )
-}
+const Details = () => (
+  <div>
+    <OverView />
+    <Outlet />
+  </div>
+);
 
-export default Details
+export default Details;
