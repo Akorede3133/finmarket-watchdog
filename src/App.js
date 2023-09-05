@@ -13,7 +13,7 @@ import FinancialStatement from './components/FinancialStatement';
 const router = createBrowserRouter(createRoutesFromElements(
   <Route>
     <Route path="/" element={<Home />} />
-    <Route path="details/:id" element={<Details />}>
+    <Route path="details/:symbol" element={<Details />}>
       <Route index element={<CompanyDetails />} />
       <Route path="statement" element={<FinancialStatement />} />
     </Route>

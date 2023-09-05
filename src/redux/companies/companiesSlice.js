@@ -18,6 +18,17 @@ export const getActiveCompanies = createAsyncThunk('companies/getCompanies', asy
     return error;
   }
 });
+export const getCompanyDetail = createAsyncThunk('companies/getCompanyDetail', async (symbol) => {
+  try {
+    const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${API_KEY}`);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    return error;
+  }
+});
+
 const companiesSlice = createSlice({
   name: 'companies',
   initialState,
