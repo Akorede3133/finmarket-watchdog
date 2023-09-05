@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -5,6 +6,7 @@ const initialState = {
   filteredCompanies: [],
   loading: false,
   error: '',
+  typing: false,
 };
 const API_KEY = 'c0405893fd96337e82d58e3ee28f1c63';
 export const getActiveCompanies = createAsyncThunk('companies/getCompanies', async () => {
@@ -19,7 +21,14 @@ export const getActiveCompanies = createAsyncThunk('companies/getCompanies', asy
 const companiesSlice = createSlice({
   name: 'companies',
   initialState,
-  reducers: {},
+  reducers: {
+    filterCompanies: (state, action) => {
+      state.filteredCompanies = state.companies.filter((company) => company.name.toLowerCase().startsWith(action.payload));
+    },
+    updateTyping: (state, action) => {
+      state.typing = !!action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getActiveCompanies.pending, (state) => {
@@ -36,4 +45,5 @@ const companiesSlice = createSlice({
   },
 });
 
+export const { filterCompanies, updateTyping } = companiesSlice.actions;
 export default companiesSlice.reducer;

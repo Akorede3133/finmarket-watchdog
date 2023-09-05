@@ -22,7 +22,7 @@ const CompanyCard = ({ name, price, symbol }) => (
 
 CompanyCard.propTypes = {
   name: PropTypes.string.isRequired,
-  price: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   symbol: PropTypes.string.isRequired,
 };
 
