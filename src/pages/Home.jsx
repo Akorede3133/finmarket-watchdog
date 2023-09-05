@@ -15,7 +15,7 @@ const Home = () => {
     return <h2>Loading</h2>;
   }
   return (
-    <main>
+    <main className=" bg-[#2C3333]">
       <Header />
       <CompaniesList />
     </main>

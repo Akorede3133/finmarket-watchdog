@@ -9,8 +9,8 @@ const Header = () => {
     dispatch(updateTyping(e.target.value));
   };
   return (
-    <header className="flex justify-between items-center p-4 bg-[#EEE0C9]">
-      <h2 className=" text-2xl">Active Companies</h2>
+    <header className="flex justify-between items-center p-4 bg-[#2C3333] shadow-lg">
+      <h2 className=" text-2xl text-[#F8F0E5]">Active Companies</h2>
       <form action="" className="w-[50%]">
         <input
           type="text"

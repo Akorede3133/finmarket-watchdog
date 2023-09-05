@@ -2,15 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import CompanyCard from './CompanyCard';
+import NoMatchFound from './NoMatchFound';
 
 const CompaniesList = () => {
   const { filteredCompanies, typing, companies } = useSelector((state) => state.companies);
   const display = typing ? filteredCompanies : companies;
   if (display.length === 0) {
-    return <h2>sorry</h2>;
+    return <NoMatchFound />;
   }
   return (
-    <ul className=" grid grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
+    <ul className="grid py-3 gap-2 grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
       {
     display.map((company) => {
       const { name, price, symbol } = company;
