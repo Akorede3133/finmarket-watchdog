@@ -4,6 +4,7 @@ const initialState = {
   companies: [],
   filteredCompanies: [],
   companyDetail: [],
+  statement: [],
   loading: false,
   error: '',
   typing: false,
@@ -21,6 +22,15 @@ export const getActiveCompanies = createAsyncThunk('companies/getCompanies', asy
 export const getCompanyDetail = createAsyncThunk('companies/getCompanyDetail', async (symbol) => {
   try {
     const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${API_KEY}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+});
+export const getCompanyStatement = createAsyncThunk('companies/getCompanyStatement', async (symbol) => {
+  try {
+    const response = await fetch(`https://financialmodelingprep.com/api/v3/income-statement/${symbol}?limit=120&apikey=${API_KEY}`);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -48,6 +58,10 @@ const companiesSlice = createSlice({
       })
       .addCase(getActiveCompanies.fulfilled, (state, action) => {
         state.loading = false;
+        if (action.payload['Error Message']) {
+          state.companies = [];
+          return;
+        }
         state.companies = action.payload;
       })
       .addCase(getActiveCompanies.rejected, (state, action) => {
@@ -62,6 +76,17 @@ const companiesSlice = createSlice({
         [state.companyDetail] = action.payload;
       })
       .addCase(getCompanyDetail.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(getCompanyStatement.pending, (state) => {
+        state.loading = false;
+      })
+      .addCase(getCompanyStatement.fulfilled, (state, action) => {
+        state.loading = false;
+        state.statement = action.payload;
+      })
+      .addCase(getCompanyStatement.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

@@ -7,8 +7,11 @@ import NoMatchFound from './NoMatchFound';
 const CompaniesList = () => {
   const { filteredCompanies, typing, companies } = useSelector((state) => state.companies);
   const display = typing ? filteredCompanies : companies;
-  if (display.length === 0) {
-    return <NoMatchFound />;
+  if (display.length === 0 && typing) {
+    return <NoMatchFound message="Sorry, No Match Was Found" />;
+  }
+  if (display.length === 0 && !typing) {
+    return <NoMatchFound message="Sorry, Cannot fetch data at the moment, check back tommorrow" />;
   }
   return (
     <ul className="grid py-3 gap-2 grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">

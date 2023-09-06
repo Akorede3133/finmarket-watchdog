@@ -1,9 +1,16 @@
-import { useOutletContext } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getCompanyStatement } from '../redux/companies/companiesSlice';
 
 const FinancialStatement = () => {
-  const details = useOutletContext();
-  console.log(details);
-
+  const { symbol } = useParams();
+  const dispatch = useDispatch();
+  const { statement } = useSelector((state) => state.companies);
+  useEffect(() => {
+    dispatch(getCompanyStatement(symbol));
+  }, [symbol, dispatch]);
+  console.log(statement);
   return (
     <div>
       <table className="w-full">
