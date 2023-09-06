@@ -11,7 +11,7 @@ const CompaniesList = () => {
     return <NoMatchFound message="Sorry, No Match Was Found" />;
   }
   if (display.length === 0 && !typing) {
-    return <NoMatchFound message="Sorry, Cannot fetch data at the moment, check back tommorrow" />;
+    return <NoMatchFound message="Sorry, Cannot fetch data at the moment, check back tomorrow" />;
   }
   return (
     <ul className="grid py-3 gap-1 grid-cols-2">
