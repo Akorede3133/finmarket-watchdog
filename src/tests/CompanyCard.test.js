@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import CompanyCard from '../components/CompanyCard';
 
 describe('CompanyCard', () => {
-  it('renders the CompanyCard component with provided props', () => {
+  test('renders the CompanyCard component with provided props', () => {
     const props = {
       name: 'Apple',
       price: 100.5,
@@ -24,7 +24,7 @@ describe('CompanyCard', () => {
     expect(getByText('$100.5')).toBeInTheDocument();
   });
 
-  it('truncates long names with ellipsis', () => {
+  test('truncates long names with ellipsis', () => {
     const props = {
       name: 'Palisade Bio, Inc.',
       price: 200.75,
@@ -43,7 +43,7 @@ describe('CompanyCard', () => {
     expect(getByText('Palisade B...')).toBeInTheDocument();
   });
 
-  it('matches snapshot', () => {
+  test('matches snapshot', () => {
     const props = {
       name: 'Tesla, Inc',
       price: 150.25,
