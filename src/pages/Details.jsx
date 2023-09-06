@@ -10,7 +10,7 @@ const Details = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getCompanyDetail(symbol));
-  }, []);
+  }, [dispatch, symbol]);
   if (loading) {
     return <h2>Loading...</h2>;
   }

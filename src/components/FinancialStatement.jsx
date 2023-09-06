@@ -9,9 +9,8 @@ const FinancialStatement = () => {
   const { statement } = useSelector((state) => state.companies);
   useEffect(() => {
     dispatch(getCompanyStatement(symbol));
-  }, []);
-  console.log(statement);
-  // calendarYear, grossProfit, netIncome, operatingExpenses
+  }, [dispatch, symbol]);
+
   return (
     <div>
       <table className="w-full">
