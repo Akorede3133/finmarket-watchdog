@@ -1,9 +1,9 @@
-/* eslint-disable max-len */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   companies: [],
   filteredCompanies: [],
+  companyDetail: [],
   loading: false,
   error: '',
   typing: false,
@@ -22,7 +22,6 @@ export const getCompanyDetail = createAsyncThunk('companies/getCompanyDetail', a
   try {
     const response = await fetch(`https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=${API_KEY}`);
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     return error;
@@ -34,7 +33,9 @@ const companiesSlice = createSlice({
   initialState,
   reducers: {
     filterCompanies: (state, action) => {
-      state.filteredCompanies = state.companies.filter((company) => company.name.toLowerCase().startsWith(action.payload));
+      state.filteredCompanies = state.companies
+        .filter((company) => company.name.toLowerCase()
+          .startsWith(action.payload.toLowerCase()));
     },
     updateTyping: (state, action) => {
       state.typing = !!action.payload;
@@ -50,6 +51,17 @@ const companiesSlice = createSlice({
         state.companies = action.payload;
       })
       .addCase(getActiveCompanies.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(getCompanyDetail.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(getCompanyDetail.fulfilled, (state, action) => {
+        state.loading = false;
+        [state.companyDetail] = action.payload;
+      })
+      .addCase(getCompanyDetail.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

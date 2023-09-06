@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const OverView = () => {
+const OverView = ({ image }) => {
+  console.log(image);
   const style = {
-    // textDecoration: 'underline',
     borderBottom: '1px solid black',
     color: 'black',
     padding: '2px',
@@ -12,7 +13,7 @@ const OverView = () => {
     <div className=" bg-slate-400 mb-3">
       <div className="flex justify-center items-start gap-6">
         <div className="">
-          <img src="https://financialmodelingprep.com/image-stock/TSLA.png" alt="" className=" object-cover" />
+          <img src={image} alt="" className=" object-cover" />
         </div>
       </div>
       <nav className="flex py-2 w-full">
@@ -22,7 +23,7 @@ const OverView = () => {
               to="."
               end
               className="text-white text-xl"
-              style={({ isActive }) => (isActive ? style : [])}
+              style={({ isActive }) => (isActive ? style : {})}
             >
               Info
             </NavLink>
@@ -49,6 +50,10 @@ const OverView = () => {
       </nav>
     </div>
   );
+};
+
+OverView.propTypes = {
+  image: PropTypes.string.isRequired,
 };
 
 export default OverView;

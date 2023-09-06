@@ -1,56 +1,78 @@
 import React from 'react';
+import { useOutletContext } from 'react-router-dom';
 
-const CompanyDetails = () => (
-  <div className="mt-5 w-[90%] mx-auto">
-    <table className="w-full">
-      <tbody>
-        <tr>
-          <th>Name</th>
-          <td>Tesla</td>
-        </tr>
-        <tr>
-          <th>industry</th>
-          <td>Auto Manufacturers</td>
-        </tr>
-        <tr>
-          <th>CEO</th>
-          <td>Mr Elon MUsk</td>
-        </tr>
-        <tr>
-          <th>Country</th>
-          <td>US</td>
-        </tr>
-        <tr>
-          <th>website</th>
-          <td><a href="https://www.tesla.com" className=" text-blue-400">Tesla</a></td>
-        </tr>
-        <tr>
-          <th>phone</th>
-          <td>512 516 8177</td>
-        </tr>
-        <tr>
-          <th>address</th>
-          <td>1 Tesla Road</td>
-        </tr>
-        <tr>
-          <th>city</th>
-          <td>Austin</td>
-        </tr>
-        <tr>
-          <th>state</th>
-          <td>TX</td>
-        </tr>
-        <tr>
-          <th>Price</th>
-          <td>$245.0</td>
-        </tr>
-        <tr>
-          <th>Price change</th>
-          <td>$45.0</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
+const CompanyDetails = () => {
+  const {
+    companyName: name,
+    industry,
+    ceo,
+    country,
+    website,
+    phone,
+    address,
+    city,
+    state,
+    price,
+    changes,
+  } = useOutletContext();
+  return (
+    <div className="mt-5 w-[90%] mx-auto">
+      <table className="w-full">
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <td>{name}</td>
+          </tr>
+          <tr>
+            <th>industry</th>
+            <td>{industry}</td>
+          </tr>
+          <tr>
+            <th>CEO</th>
+            <td>{ceo}</td>
+          </tr>
+          <tr>
+            <th>Country</th>
+            <td>{country}</td>
+          </tr>
+          <tr>
+            <th>website</th>
+            <td><a href={website} className=" text-blue-400">Tesla</a></td>
+          </tr>
+          <tr>
+            <th>phone</th>
+            <td>{phone}</td>
+          </tr>
+          <tr>
+            <th>address</th>
+            <td>{address}</td>
+          </tr>
+          <tr>
+            <th>city</th>
+            <td>{city}</td>
+          </tr>
+          <tr>
+            <th>state</th>
+            <td>{state}</td>
+          </tr>
+          <tr>
+            <th>Price</th>
+            <td>
+              $
+              {price}
+            </td>
+          </tr>
+          <tr>
+            <th>Price change</th>
+            <td>
+              $
+              {changes}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
 export default CompanyDetails;
