@@ -18,7 +18,11 @@ const OverView = () => {
       </Link>
       <div className="flex justify-center items-start gap-6">
         <div className="">
-          <img src={image} alt="" className=" object-cover" />
+          <img
+            src={image}
+            alt="Company"
+            className=" object-cover"
+          />
         </div>
       </div>
       <nav className="py-2 w-full ">
