@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const OverView = ({ image }) => {
-  console.log(image);
+const OverView = () => {
+  const { companyDetail: { image } } = useSelector((state) => state.companies);
   const style = {
     borderBottom: '1px solid black',
     color: 'black',
@@ -50,10 +50,6 @@ const OverView = ({ image }) => {
       </nav>
     </div>
   );
-};
-
-OverView.propTypes = {
-  image: PropTypes.string.isRequired,
 };
 
 export default OverView;

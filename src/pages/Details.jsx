@@ -16,7 +16,7 @@ const Details = () => {
   }
   return (
     <div className="bg-slate-400 p-4 min-h-screen">
-      <OverView image={companyDetail?.image} />
+      <OverView />
       <Outlet context={companyDetail} />
     </div>
   );

@@ -14,6 +14,7 @@ const CompanyDetails = () => {
     state,
     price,
     changes,
+    symbol,
   } = useOutletContext();
   return (
     <div className="mt-5 w-[90%] mx-auto">
@@ -37,7 +38,7 @@ const CompanyDetails = () => {
           </tr>
           <tr>
             <th>website</th>
-            <td><a href={website} className=" text-blue-400">Tesla</a></td>
+            <td><a href={website} className=" text-blue-400">{symbol}</a></td>
           </tr>
           <tr>
             <th>phone</th>

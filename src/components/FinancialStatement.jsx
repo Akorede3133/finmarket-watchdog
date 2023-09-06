@@ -9,34 +9,46 @@ const FinancialStatement = () => {
   const { statement } = useSelector((state) => state.companies);
   useEffect(() => {
     dispatch(getCompanyStatement(symbol));
-  }, [symbol, dispatch]);
+  }, []);
   console.log(statement);
+  // calendarYear, grossProfit, netIncome, operatingExpenses
   return (
     <div>
       <table className="w-full">
         <tbody>
           <tr>
             <th className="w-[10%]">Year</th>
-            <th>Income</th>
-            <th>Expenses</th>
+            <th>Income(net)</th>
+            <th>Expenses(operating)</th>
             <th>Gross Profit</th>
           </tr>
-          <tr>
-            <td className="w-[10%]">2022</td>
-            <td className="w-[10%]">$99803000000</td>
-            <td className="whitespace-nowrap w-[10%]">
-              $51345000000
-            </td>
-            <td className="w-[10%]">$170782000000</td>
-          </tr>
-          <tr>
-            <td className="w-[10%]">2022</td>
-            <td className="w-[10%]">$99803000000</td>
-            <td className="whitespace-nowrap w-[10%]">
-              $51345000000
-            </td>
-            <td className="w-[10%]">$170782000000</td>
-          </tr>
+          {
+            statement.map((state) => {
+              const {
+                calendarYear: year,
+                grossProfit: profit,
+                netIncome: income,
+                operatingExpenses: expenses,
+              } = state;
+              return (
+                <tr key={symbol}>
+                  <td className="w-[10%]">{year}</td>
+                  <td className="w-[10%]">
+                    $
+                    {income.toLocaleString()}
+                  </td>
+                  <td className="whitespace-nowrap w-[10%]">
+                    $
+                    {expenses.toLocaleString()}
+                  </td>
+                  <td className="w-[10%]">
+                    $
+                    {profit.toLocaleString()}
+                  </td>
+                </tr>
+              );
+            })
+          }
         </tbody>
       </table>
     </div>
