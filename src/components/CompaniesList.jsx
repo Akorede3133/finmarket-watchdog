@@ -14,7 +14,7 @@ const CompaniesList = () => {
     return <NoMatchFound message="Sorry, Cannot fetch data at the moment, check back tommorrow" />;
   }
   return (
-    <ul className="grid py-3 gap-2 grid-cols-[repeat(auto-fill,minmax(400px,1fr))]">
+    <ul className="grid py-3 gap-2 grid-cols-2">
       {
     display.map((company) => {
       const { name, price, symbol } = company;

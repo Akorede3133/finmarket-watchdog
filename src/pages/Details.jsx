@@ -15,7 +15,7 @@ const Details = () => {
     return <h2>Loading...</h2>;
   }
   return (
-    <div className="bg-slate-400 p-4 min-h-screen">
+    <div className="bg-[#2C3333] p-4 min-h-screen">
       <OverView />
       <Outlet context={companyDetail} />
     </div>

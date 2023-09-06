@@ -1,16 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { HiArrowNarrowLeft } from 'react-icons/hi';
 
 const OverView = () => {
   const { companyDetail: { image } } = useSelector((state) => state.companies);
   const style = {
-    borderBottom: '1px solid black',
-    color: 'black',
+    borderBottom: '1px solid #fff',
+    color: '#F4EEE0',
     padding: '2px',
   };
   return (
-    <div className=" bg-slate-400 mb-3">
+    <div className="mb-3 px-4">
+      <Link to="/" className="flex gap-4 items-center mb-4">
+        <HiArrowNarrowLeft className="text-white text-2xl" />
+        <p className="text-white text-xl">Back Home</p>
+      </Link>
       <div className="flex justify-center items-start gap-6">
         <div className="">
           <img src={image} alt="" className=" object-cover" />
