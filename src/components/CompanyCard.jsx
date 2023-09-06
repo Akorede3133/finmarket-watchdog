@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { HiOutlineArrowRightCircle } from 'react-icons/hi2';
 
 const CompanyCard = ({ name, price, symbol }) => (
-  <li className="card text-white flex flex-col items-end justify-between h-[250px] bg-center bg-no-repeat bg-cover p-3 ">
+  <li className="card text-white flex flex-col items-end justify-between h-[220px] md:h-[300px] bg-center bg-no-repeat bg-cover p-3 ">
     <div>
       <HiOutlineArrowRightCircle style={{ fontSize: '1.6rem' }} />
     </div>

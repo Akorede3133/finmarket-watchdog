@@ -21,8 +21,8 @@ const OverView = () => {
           <img src={image} alt="" className=" object-cover" />
         </div>
       </div>
-      <nav className="flex py-2 w-full">
-        <ul className="flex w-[55%] mx-auto justify-between gap-4">
+      <nav className="py-2 w-full ">
+        <ul className="flex md:w-[55%] mx-auto justify-between gap-4">
           <li>
             <NavLink
               to="."

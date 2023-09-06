@@ -9,8 +9,6 @@
 table,
 th,
 td {
-  /* border: 1px solid gray;
-  border-collapse: collapse; */
   padding: 10px;
 }
 tr {
@@ -26,6 +24,7 @@ tr:nth-child(even) {
 th {
   text-align: left;
   white-space: nowrap;
+  text-transform: capitalize;
 }
 
 td {
