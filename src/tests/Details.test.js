@@ -34,7 +34,7 @@ describe('Details', () => {
     jest.clearAllMocks();
   });
 
-  it('dispatches getCompanyDetail action with the symbol parameter', async () => {
+  test('dispatches getCompanyDetail action with the symbol parameter', async () => {
     const { getByText, getByAltText } = render(
       <MemoryRouter initialEntries={['/details/XYZ']}>
         <Routes>
@@ -59,7 +59,7 @@ describe('Details', () => {
     // You can add more assertions for other elements if needed
   });
 
-  it('matches snapshot', async () => {
+  test('matches snapshot', async () => {
     const { container } = render(
       <MemoryRouter initialEntries={['/details/XYZ']}>
         <Routes>
