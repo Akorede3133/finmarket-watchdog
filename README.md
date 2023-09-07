@@ -91,7 +91,7 @@
 
 ## 🚀 Description Video<a name="video-demo"></a>
 
-- [Link to our description video](https://www.loom.com/share/1fda680cb4a34b58818ac1510a7715f8/)
+- [Link to my description video](https://www.loom.com/share/1fda680cb4a34b58818ac1510a7715f8/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
