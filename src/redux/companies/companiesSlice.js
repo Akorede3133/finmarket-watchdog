@@ -62,7 +62,6 @@ const companiesSlice = createSlice({
         state.loading = false;
         if (action.payload['Error Message']) {
           state.companies = [];
-          return;
         }
         state.companies = action.payload;
       })
